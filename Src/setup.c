@@ -394,10 +394,11 @@ void MX_GPIO_Init(void) {
   GPIO_InitStruct.Pin = RIGHT_HALL_W_PIN;
   HAL_GPIO_Init(RIGHT_HALL_W_PORT, &GPIO_InitStruct);
 
+/*
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   GPIO_InitStruct.Pin = CHARGER_PIN;
   HAL_GPIO_Init(CHARGER_PORT, &GPIO_InitStruct);
-
+*/
   #if defined(SUPPORT_BUTTONS_LEFT) || defined(SUPPORT_BUTTONS_RIGHT)
   GPIO_InitStruct.Pin = BUTTON1_PIN;
   HAL_GPIO_Init(BUTTON1_PORT, &GPIO_InitStruct);
@@ -414,8 +415,8 @@ void MX_GPIO_Init(void) {
 
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
 
-  GPIO_InitStruct.Pin = LED_PIN;
-  HAL_GPIO_Init(LED_PORT, &GPIO_InitStruct);
+  //GPIO_InitStruct.Pin = LED_PIN;
+  //HAL_GPIO_Init(LED_PORT, &GPIO_InitStruct);
 
   GPIO_InitStruct.Pin = BUZZER_PIN;
   HAL_GPIO_Init(BUZZER_PORT, &GPIO_InitStruct);
@@ -638,7 +639,7 @@ void MX_ADC1_Init(void) {
   sConfig.Rank    = 3;
   HAL_ADC_ConfigChannel(&hadc1, &sConfig);
 
-  sConfig.Channel = ADC_CHANNEL_12;  // pc2 vbat
+  sConfig.Channel = ADC_CHANNEL_10;  // pc0 vbat
   sConfig.Rank    = 4;
   HAL_ADC_ConfigChannel(&hadc1, &sConfig);
 

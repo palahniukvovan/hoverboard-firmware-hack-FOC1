@@ -187,7 +187,7 @@ int main(void) {
   HAL_ADC_Start(&hadc2);  
 
   poweronMelody();
-  HAL_GPIO_WritePin(LED_PORT, LED_PIN, GPIO_PIN_SET);
+  //HAL_GPIO_WritePin(LED_PORT, LED_PIN, GPIO_PIN_SET);
 
   int16_t speedL     = 0, speedR     = 0;
   int16_t lastSpeedL = 0, lastSpeedR = 0;
@@ -472,8 +472,8 @@ int main(void) {
       buzzerFreq    = 8;
       buzzerPattern = 1;
     } else if (timeoutFlagADC || timeoutFlagSerial || timeoutCnt > TIMEOUT) { // beep in case of ADC timeout, Serial timeout or General timeout - fast beep      
-      buzzerFreq    = 24;
-      buzzerPattern = 1;
+      buzzerFreq    = 0;
+      buzzerPattern = 0;
     } else if (TEMP_WARNING_ENABLE && board_temp_deg_c >= TEMP_WARNING) {  // beep if mainboard gets hot
       buzzerFreq    = 4;
       buzzerPattern = 1;
